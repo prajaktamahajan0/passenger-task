@@ -1,0 +1,15 @@
+<app-pass-count
+ [checkInCount]="checkInCount" 
+[totalPassCount]="passArr.length"
+>
+</app-pass-count>
+
+<ul class="list-group my-4">
+    <li class="list-group-item" *ngFor="let pass of passArr">
+        {{pass.fullname}}
+    </li>
+</ul>
+
+<app-pass-card 
+(emitPassInfo)="onRemove($event)"
+[passObj]="pass" *ngFor="let pass of passArr"></app-pass-card>

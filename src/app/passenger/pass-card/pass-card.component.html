@@ -1,0 +1,32 @@
+<div class="card mb-4">
+    <div class="card-body">
+        <div class="form-group">
+            <span class="shape"
+             [ngClass]="{
+            'bg-success' : passObj.checkInDate,
+            'bg-danger' : !passObj.checkedIn
+            }">
+            </span>
+
+            <input type="text" class="form-control" [disabled]="!isEditable" #fullname [value]="passObj.fullname">
+        </div>
+        <p>
+            check In Date : {{ (passObj.checkInDate | date) || 'Not Checked In Yet.'}}
+        </p>
+
+        <p>
+            Children : {{(passObj.children?.length) || 0 }}
+        </p>
+    </div>
+
+    <div class="card-footer ml-2">
+        <button class="btn btn-outline-info" *ngIf="!isEditable" (click)="isEditable = true">Edit</button>
+
+        <button class="btn btn-outline-success" (click)="isEditable = false; onUpdate(fullname.value)"
+            *ngIf="isEditable">Done</button>
+
+        <button class="btn btn-outline-danger ml-2"
+      (click)="onRemovePass()"
+        >Remove</button>
+    </div>
+</div>

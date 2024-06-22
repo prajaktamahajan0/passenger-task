@@ -1,0 +1,18 @@
+.form-control:disabled,
+.form-control[readonly] {
+  background-color: #fff;
+  border-color: transparent;
+}
+
+.form-group {
+  position: relative;
+
+  .shape {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: 12px;
+    left: -16px;
+    border-radius: 9px;
+  }
+}
